@@ -7,18 +7,19 @@ export default class InsertSort {
             let tmpSortedArray = []
             do {
                 let sortedElement
-                if (sortedElement = sortedArray.pop()) {
+                sortedElement = sortedArray.pop()
+                if (sortedElement > element && typeof sortedElement !== 'undefined') {
                     tmpSortedArray.unshift(sortedElement)
-                }
-                if (element > sortedElement || typeof sortedElement === 'undefined') {
+                } else {
+                    if (typeof sortedElement !== 'undefined') {
+                        sortedArray.push(sortedElement)
+                    }
                     sortedArray.push(element)
                     sortedArray = sortedArray.concat(tmpSortedArray)
                     found = true
                 }
             } while (!found)
-            // console.log(found)
         }
-        console.log(sortedArray)
         return sortedArray
     }
 }
